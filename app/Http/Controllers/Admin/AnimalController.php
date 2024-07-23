@@ -20,10 +20,10 @@ class AnimalController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Animal $animal)
     {
-        $animals = Animal::findOrFail($id);
-        return view('admin.animals.show', compact('animals'));
+        // $animals = Animal::findOrFail($id);
+        return view('admin.animals.show');
     }
 
     /**
@@ -31,7 +31,7 @@ class AnimalController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.animals.create');
     }
 
     /**
@@ -39,7 +39,10 @@ class AnimalController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data=$request->all();
+        $newAnimal->name=$data['name'];
+        $newAnimal->save();
+        return redirect()->route('admin.animals.show', $newAnimal);
     }
 
     /**
