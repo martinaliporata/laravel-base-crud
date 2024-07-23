@@ -40,6 +40,7 @@ class AnimalController extends Controller
     public function store(Request $request)
     {
         $data=$request->all();
+        $newAnimal = new Animal();
         $newAnimal->name=$data['name'];
         $newAnimal->save();
         return redirect()->route('admin.animals.show', $newAnimal);
