@@ -32,9 +32,17 @@
                             <p class="card-text">
                                 {{$animal->colour;}}
                             </p>
+                            <p class="card-text">
+                                {{$animal->habitat;}}
+                            </p>
+                            <p class="card-text">
+                                {{$animal->life_duration;}}
+                            </p>
                         </div>
                     </div>
-
+                    <div>
+                        <a href="{{route('admin.animals.index')}}" class="btn btn-primary">Back to see all animals</a>
+                    </div>
                 </article>
             </div>
         </div>

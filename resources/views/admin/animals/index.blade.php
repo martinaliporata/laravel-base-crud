@@ -8,28 +8,41 @@
     </div>
     <div class="container">
         <div class="row">
-            @foreach($animals as $animal)
-                <article>
-                    <h1>
-                        {{$animal->name}}
-                    </h1>
-                    <p>
-                        {{$animal->species}}
-                    </p>
-                    <p>
-                        {{$animal->weight}}
-                    </p>
-                    <p>
-                        {{$animal->alimentation}}
-                    </p>
-                    <p>
-                        {{$animal->extintion}}
-                    </p>
-                    <p>
-                        {{$animal->colour}}
-                    </p>
-                </article>
-            @endforeach
+            <div class="col-12">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">id</th>
+                            <th scope="col">name</th>
+                            <th scope="col">species</th>
+                            <th scope="col">wheight</th>
+                            <th scope="col">alimentation</th>
+                            <th scope="col">extintion</th>
+                            <th scope="col">colour</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($animals as $animal)
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>{{$animal->name}}</td>
+                                <td>{{$animal->species}}</td>
+                                <td>{{$animal->weight}}</td>
+                                <td>{{$animal->alimentation}}</td>
+                                <td>{{$animal->extintion}}</td>
+                                <td>{{$animal->colour}}</td>
+                                <td>{{$animal->habitat}}</td>
+                                <td>{{$animal->life_duration}}</td>
+                                <td>
+                                    <a href="{{route('admin.animals.show, $animal->id')}}" class="btn btn-primary">View</a>
+                                    <a href="#" class="btn btn-warning">Edit</a>
+                                    <a href="#" class="btn btn-danger">Delete</a>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 @endsection

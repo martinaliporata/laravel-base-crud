@@ -1,4 +1,4 @@
-@extends('layout.app')
+{{-- @extends('layout.app')
 
 @yield('page-title', 'homepage')
 
@@ -16,5 +16,5 @@
             </div>
         </div>
     </div>
-@endsection
+@endsection --}}
 

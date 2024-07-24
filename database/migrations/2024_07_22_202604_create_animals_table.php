@@ -13,16 +13,17 @@ return new class extends Migration
     {
         Schema::create('animals', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('species');
-            $table->string('weight');
-            $table->string('alimentation');
-            $table->string('extintion');
-            $table->string('colour');
+            $table->string('name', 255);
+            $table->string('species', 255);
+            $table->integer('weight')->unsigned();
+            $table->string('alimentation', 255);
+            $table->string('extintion', 255);
+            $table->string('colour', 255);
+            $table->string('habitat', 255);
+            $table->smallInteger('life_duration')->unsigned();
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      */
