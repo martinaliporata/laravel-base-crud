@@ -24,8 +24,11 @@
                     <tbody>
                         @foreach ($animals as $animal)
                             <tr>
-                                <th scope="row">3</th>
+                                <th scope="row">
+                                    {{$animal->id}}
+                                </th>
                                 <td>{{$animal->name}}</td>
+                                <td>{{$animal->image_url}}</td>
                                 <td>{{$animal->species}}</td>
                                 <td>{{$animal->weight}}</td>
                                 <td>{{$animal->alimentation}}</td>
@@ -34,7 +37,7 @@
                                 <td>{{$animal->habitat}}</td>
                                 <td>{{$animal->life_duration}}</td>
                                 <td>
-                                    <a href="{{route('admin.animals.show, $animal->id')}}" class="btn btn-primary">View</a>
+                                    <a href="{{ route('admin.animals.show', $animal->id) }}" class="btn btn-primary">View</a>
                                     <a href="#" class="btn btn-warning">Edit</a>
                                     <a href="#" class="btn btn-danger">Delete</a>
                                 </td>

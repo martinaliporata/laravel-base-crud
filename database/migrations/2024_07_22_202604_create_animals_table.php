@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('animals', function (Blueprint $table) {
             $table->id();
             $table->string('name', 255);
+            $table->text('image_url', 255);
             $table->string('species', 255);
             $table->integer('weight')->unsigned();
             $table->string('alimentation', 255);
