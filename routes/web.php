@@ -14,7 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [AnimalController::class, 'index']) ->name('admin.animals.index');
+Route::get('/', [AnimalController::class, 'index']) ->name('home');
+Route::get('/animals', [AnimalController::class, 'index']) ->name('admin.animals.index');
 Route::post('/animals', [AnimalController::class, 'store'])->name('animals.store');
 Route::get('/animals/create', [AnimalController::class, 'create'])->name('animals.create');
 Route::get('/animals/{id}', [AnimalController::class, 'show']) ->name('admin.animals.show');
+
+
