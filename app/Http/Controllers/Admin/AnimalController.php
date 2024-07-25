@@ -39,8 +39,19 @@ class AnimalController extends Controller
      */
     public function store(Request $request)
     {
+        $data = $request->validate([
+            'name' => 'required|unique:animals|max:255|min:3',
+            'image' => 'required|URL',
+            'species' => 'required|max:255|min:3',
+            'weight' => 'required|numeric|min:0',
+            'alimentation' => 'required||max:255|min:3',
+            'extintion' => 'required|max:255|min:3',
+            'colour' => 'required|max:255|min:3',
+            'habitat' => 'required|max:255|min:3',
+            'life_duration' => 'required|max:255|min:3',
+        ]);
         // salvo tutti i dati in un nuovo array associativo chiamato data
-        $data=$request->all();
+        // $data=$request->all();
 
         // metodo a mano
         // salvo tutti i dati in un nuovo array associativo chiamato data
