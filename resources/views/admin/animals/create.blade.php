@@ -31,11 +31,11 @@
                 <input class="form-control form-control-sm" type="text" placeholder="habitat" aria-label="habitat" id="habitat" name="habitat">
                 <label for="life duration">Life duration</label>
                 <input class="form-control form-control-sm" type="text" placeholder="life duration" aria-label="life duration" id="life duration" name="life duration">
+                <div class="d-flex justify-content-between">
+                    <input type="submit" value="Create a new animal" class="btn btn-primary">
+                    <input type="reset" value="Reset fields" class="btn btn-warning">
+                </div>
             </form>
-            <div class="d-flex justify-content-between">
-                <input type="submit" value="Create a new animal" class="btn btn-primary">
-                <input type="reset" value="Reset fields" class="btn btn-warning">
-            </div>
         </div>
     </div>
 </div>

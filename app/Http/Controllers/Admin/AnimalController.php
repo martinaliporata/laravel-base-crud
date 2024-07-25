@@ -39,6 +39,7 @@ class AnimalController extends Controller
      */
     public function store(Request $request)
     {
+        // salvo tutti i dati in un nuovo array associativo chiamato data
         $data=$request->all();
 
         // metodo a mano
@@ -56,7 +57,8 @@ class AnimalController extends Controller
         // return redirect()->route('admin.animals.show', $newAnimal);
 
         // con le fillable messe sempre nel model
-        $newAnimal = Animal::create($data);
+        $newAnimal = new Animal ($data);
+        $newAnimal->save();
         return redirect()->route('admin.animals.show', $newAnimal);
     }
 
