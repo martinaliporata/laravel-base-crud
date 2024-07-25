@@ -21,3 +21,7 @@ Route::get('/animals/create', [AnimalController::class, 'create'])->name('animal
 Route::get('/animals/{id}', [AnimalController::class, 'show']) ->name('admin.animals.show');
 Route::get('/animals/{id}/edit', [AnimalController::class, 'edit']) ->name('admin.animals.edit');
 Route::put('/animals/{id}', [AnimalController::class, 'update']) ->name('admin.animals.update');
+Route::delete('/animals/{id}', [AnimalController::class, 'destroy']) ->name('admin.animals.destroy');
+
+// posso anche scriverle così
+// Route::resource('/animals'. AnimalController::class);

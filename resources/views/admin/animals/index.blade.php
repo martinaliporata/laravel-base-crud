@@ -30,8 +30,11 @@
                                         <br> Habitat: {{$animal->habitat}}
                                         <br> Life duration: {{$animal->life_duration}}
                                     </p>
-                                    <a href="{{route('admin.animals.show', $animal)}}" class="btn btn-primary">See animal's details</a>
-                                    <a href="{{route('admin.animals.edit', $animal)}}" class="btn btn-success">Edit animal</a>
+                                    <a href="{{route('admin.animals.show', $animal)}}" class="btn btn-primary">Details</a>
+                                    <a href="{{route('admin.animals.edit', $animal)}}" class="btn btn-success">Edit</a>
+                                    <form action="{{'admin.animals.destroy'}}" method="POST" class="d-inline-block">
+                                        <button type="submit" class="btn btn-warning">Delete</button>
+                                    </form>
                                 </div>
                             </div>
                         </article>
