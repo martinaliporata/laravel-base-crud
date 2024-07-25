@@ -20,7 +20,7 @@
                 <label for="species">Species</label>
                 <input class="form-control form-control-sm" type="text" placeholder="species" aria-label="species" id="species" name="species">
                 <label for="weight">Weight</label>
-                <input class="form-control form-control-sm" type="text" placeholder="weight" aria-label="weight" id="weight" name="weight">
+                <input class="form-control form-control-sm" type="number" placeholder="weight" aria-label="weight" id="weight" name="weight">
                 <label for="alimentation">Alimentation</label>
                 <input class="form-control form-control-sm" type="text" placeholder="alimentation" aria-label="alimentation" id="alimentation" name="alimentation">
                 <label for="extintion">Extintion</label>

@@ -40,9 +40,23 @@ class AnimalController extends Controller
     public function store(Request $request)
     {
         $data=$request->all();
-        $newAnimal = new Animal();
-        $newAnimal->name=$data['name'];
-        $newAnimal->save();
+
+        // metodo a mano
+        // salvo tutti i dati in un nuovo array associativo chiamato data
+        // $newAnimal = new Animal();
+        // $newAnimal->name = $data['name'];
+        // $newAnimal->species = $data['species'];
+        // $newAnimal->weight = $data['weight'];
+        // $newAnimal->alimentation = $data['alimentation'];
+        // $newAnimal->extintion = $data['extintion'];
+        // $newAnimal->colour = $data['colour'];
+        // $newAnimal->habitat = $data['habitat'];
+        // $newAnimal->life_duration = $data['life_duration'];
+        // $newAnimal-> save();
+        // return redirect()->route('admin.animals.show', $newAnimal);
+
+        // con le fillable messe sempre nel model
+        $newAnimal = Animal::create($data);
         return redirect()->route('admin.animals.show', $newAnimal);
     }
 
