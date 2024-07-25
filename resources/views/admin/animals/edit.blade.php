@@ -12,7 +12,7 @@
     <div class="row justify-content-center">
         <div class="col-6">
             {{-- Nel metodo del form posso scrivere solo get o post, quindi, se voglio aggiungere un altro metodo, lo scrivo sotto --}}
-            <form action="{{route('admin.animals.update', $animal)}}" method="POST">
+            <form action="{{route('admin.animals.update', $animal)}}" method="POST" id="creation-form">
                 @method("PUT")
                 @csrf
                 <label for="name">Name</label>
@@ -41,4 +41,8 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('custom-scripts')
+    @vite('resources/js/creation-confirm.js')
 @endsection

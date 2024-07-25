@@ -32,7 +32,9 @@
                                     </p>
                                     <a href="{{route('admin.animals.show', $animal)}}" class="btn btn-primary">Details</a>
                                     <a href="{{route('admin.animals.edit', $animal)}}" class="btn btn-success">Edit</a>
-                                    <form action="{{'admin.animals.destroy'}}" method="POST" class="d-inline-block">
+                                    <form action="{{'admin.animals.destroy'}}" method="POST" class="d-inline-block animal-destroyer">
+                                        @csrf
+                                        @method('DELETE')
                                         <button type="submit" class="btn btn-warning">Delete</button>
                                     </form>
                                 </div>
@@ -43,4 +45,8 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('custom-scripts')
+    @vite('resources/js/delete-confirm.js')
 @endsection

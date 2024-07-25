@@ -11,7 +11,7 @@
     </div>
     <div class="row justify-content-center">
         <div class="col-6">
-            <form action="{{route('animals.store')}}" method="POST">
+            <form action="{{route('animals.store')}}" method="POST" id="creation-form">
                 @csrf
                 <label for="name">Name</label>
                 <input class="form-control form-control-sm" type="text" placeholder="Animal name" aria-label="Animal name" id="name" name="name">
@@ -39,4 +39,8 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('custom-scripts')
+    @vite('resources/js/creation-confirm.js')
 @endsection

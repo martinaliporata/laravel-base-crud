@@ -101,6 +101,8 @@ class AnimalController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $animal = Animal::findOrFail($id);
+        $animal->delete();
+        return redirect()->route('admin.animals.index');
     }
 }
