@@ -6,6 +6,11 @@
 <div class="container">
     <div class="row justify-content-center">
         <article class="col-12 p-3 text-center">
+            @if (session('message'))
+                <div class="alert alert-success">
+                    {{session('message')}}
+                </div>
+            @endif
             <div class="card" style="w-100">
                 <img class="card-img-top" src="{{$animal->image_url}}" alt="">
                 <div class="card-body">

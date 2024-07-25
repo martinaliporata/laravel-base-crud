@@ -93,7 +93,7 @@ class AnimalController extends Controller
         $animal->life_duration = $data['life_duration'];
         $animal-> update();
 
-        return redirect()->route('admin.animals.show', $animal->id);
+        return redirect()->route('admin.animals.show', $animal->id)->with('message', $animal->name."has been edited successfully");
     }
 
     /**
