@@ -8,43 +8,35 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-12">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th scope="col">id</th>
-                            <th scope="col">name</th>
-                            <th scope="col">species</th>
-                            <th scope="col">wheight</th>
-                            <th scope="col">alimentation</th>
-                            <th scope="col">extintion</th>
-                            <th scope="col">colour</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($animals as $animal)
-                            <tr>
-                                <th scope="row">
-                                    {{$animal->id}}
-                                </th>
-                                <td>{{$animal->name}}</td>
-                                <td><img src="{{$animal->image_url}}" class="w-100" alt=""></td>
-                                <td>{{$animal->species}}</td>
-                                <td>{{$animal->weight}}</td>
-                                <td>{{$animal->alimentation}}</td>
-                                <td>{{$animal->extintion}}</td>
-                                <td>{{$animal->colour}}</td>
-                                <td>{{$animal->habitat}}</td>
-                                <td>{{$animal->life_duration}}</td>
-                                <td>
-                                    <a href="{{ route('admin.animals.show', $animal->id) }}" class="btn btn-primary">Animal's details</a>
-                                    <a href="#" class="btn btn-warning">Edit</a>
-                                    <a href="#" class="btn btn-danger">Delete</a>
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+            <div class="col-12 text-center">
+                <h1>
+                    Animals' index
+                </h1>
+                <div class="row">
+                    @foreach ($animals as $animal)
+                        <article class="col-4 text-center">
+                            <div class="card shadow" style="w-100">
+                                <img class="card-img-top" src="{{$animal->image_url}}" alt="">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        {{$animal->id}} - {{$animal->name}}
+                                    </h5>
+                                    <p class="card-text">
+                                        <br> Species: {{$animal->species}}
+                                        <br> Weight: {{$animal->weight}}
+                                        <br> Alimentation: {{$animal->alimentation}}
+                                        <br> Extintion: {{$animal->extintion}}
+                                        <br> Colour: {{$animal->colour}}
+                                        <br> Habitat: {{$animal->habitat}}
+                                        <br> Life duration: {{$animal->life_duration}}
+                                    </p>
+                                    <a href="{{route('admin.animals.show', $animal)}}" class="btn btn-primary">See animal's details</a>
+                                    <a href="{{route('admin.animals.edit', $animal)}}" class="btn btn-success">Edit animal</a>
+                                </div>
+                            </div>
+                        </article>
+                    @endforeach
+                </div>
             </div>
         </div>
     </div>

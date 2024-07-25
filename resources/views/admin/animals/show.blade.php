@@ -38,6 +38,7 @@
                 </ul>
                 <div class="card-footer">
                     <a href="{{route('admin.animals.index')}}" class="btn btn-primary">Back to see all animals</a>
+                    <a href="{{route('admin.animals.edit', $animal)}}" class="btn btn-success">Edit animal</a>
                 </div>
             </div>
         </article>

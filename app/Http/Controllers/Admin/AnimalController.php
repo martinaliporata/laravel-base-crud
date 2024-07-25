@@ -67,7 +67,8 @@ class AnimalController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $animal = Animal::findOrFail($id);
+        return view('admin.animals.edit', compact('animal'));
     }
 
     /**
@@ -75,7 +76,24 @@ class AnimalController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // prendo i dati della richiesta mandati con la post
+        $data=$request->all();
+
+        // metodo a mano
+        // Recuperare l'animale tramite l'ID
+        $animal = Animal::findOrFail($id);
+        // Aggiornare i dati dell'animale
+        $animal->name = $data['name'];
+        $animal->species = $data['species'];
+        $animal->weight = $data['weight'];
+        $animal->alimentation = $data['alimentation'];
+        $animal->extintion = $data['extintion'];
+        $animal->colour = $data['colour'];
+        $animal->habitat = $data['habitat'];
+        $animal->life_duration = $data['life_duration'];
+        $animal-> update();
+
+        return redirect()->route('admin.animals.show', $animal->id);
     }
 
     /**
