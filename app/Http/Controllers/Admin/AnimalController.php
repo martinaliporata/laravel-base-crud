@@ -18,7 +18,7 @@ class AnimalController extends Controller
             'colour' => 'required|max:255|min:3',
             'habitat' => 'required|max:255|min:3',
             'life_duration' => 'required|max:255|min:3',
-    ]
+    ];
     /**
      * Display a listing of the resource.
      */
