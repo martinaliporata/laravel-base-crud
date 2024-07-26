@@ -9,6 +9,18 @@
             Editing {{$animal->name}}
         </h1>
     </div>
+
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>
+                        {{$error}}
+                    </li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <div class="row justify-content-center">
         <div class="col-6">
             {{-- Nel metodo del form posso scrivere solo get o post, quindi, se voglio aggiungere un altro metodo, lo scrivo sotto --}}

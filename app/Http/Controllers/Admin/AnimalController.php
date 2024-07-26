@@ -3,22 +3,13 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreAnimalRequest;
+use App\Http\Requests\UpdateAnimalRequest;
 use App\Models\Animal;
 use Illuminate\Http\Request;
 
 class AnimalController extends Controller
 {
-    private $validationRules = [
-            'name' => 'required|unique:animals|max:255|min:3',
-            'image' => 'required|URL',
-            'species' => 'required|max:255|min:3',
-            'weight' => 'required|numeric|min:0',
-            'alimentation' => 'required|max:255|min:3',
-            'extintion' => 'required|max:255|min:3',
-            'colour' => 'required|max:255|min:3',
-            'habitat' => 'required|max:255|min:3',
-            'life_duration' => 'required|max:255|min:3',
-    ];
     /**
      * Display a listing of the resource.
      */
@@ -48,9 +39,9 @@ class AnimalController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreAnimalRequest $request)
     {
-        $data = $request->validate($this->validationRules);
+        $data = $request->validated();
         // salvo tutti i dati in un nuovo array associativo chiamato data
         // $data=$request->all();
 
@@ -86,20 +77,11 @@ class AnimalController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateAnimalRequest $request, string $id)
     {
         // prendo i dati della richiesta mandati con la post
-        $data = $request->validate([
-            'name' => 'required|unique:animals|max:255|min:3',
-            'image' => 'required|URL',
-            'species' => 'required|max:255|min:3',
-            'weight' => 'required|numeric|min:0',
-            'alimentation' => 'required|max:255|min:3',
-            'extintion' => 'required|max:255|min:3',
-            'colour' => 'required|max:255|min:3',
-            'habitat' => 'required|max:255|min:3',
-            'life_duration' => 'required|max:255|min:3',
-        ]);
+        $data = $request->validate();
+
         // metodo a mano
         // Recuperare l'animale tramite l'ID
         $animal = Animal::findOrFail($id);
