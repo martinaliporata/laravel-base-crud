@@ -8,6 +8,17 @@ use Illuminate\Http\Request;
 
 class AnimalController extends Controller
 {
+    private $validationRules = [
+            'name' => 'required|unique:animals|max:255|min:3',
+            'image' => 'required|URL',
+            'species' => 'required|max:255|min:3',
+            'weight' => 'required|numeric|min:0',
+            'alimentation' => 'required|max:255|min:3',
+            'extintion' => 'required|max:255|min:3',
+            'colour' => 'required|max:255|min:3',
+            'habitat' => 'required|max:255|min:3',
+            'life_duration' => 'required|max:255|min:3',
+    ]
     /**
      * Display a listing of the resource.
      */
@@ -39,17 +50,7 @@ class AnimalController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->validate([
-            'name' => 'required|unique:animals|max:255|min:3',
-            'image' => 'required|URL',
-            'species' => 'required|max:255|min:3',
-            'weight' => 'required|numeric|min:0',
-            'alimentation' => 'required||max:255|min:3',
-            'extintion' => 'required|max:255|min:3',
-            'colour' => 'required|max:255|min:3',
-            'habitat' => 'required|max:255|min:3',
-            'life_duration' => 'required|max:255|min:3',
-        ]);
+        $data = $request->validate($this->validationRules);
         // salvo tutti i dati in un nuovo array associativo chiamato data
         // $data=$request->all();
 
@@ -88,8 +89,17 @@ class AnimalController extends Controller
     public function update(Request $request, string $id)
     {
         // prendo i dati della richiesta mandati con la post
-        $data=$request->all();
-
+        $data = $request->validate([
+            'name' => 'required|unique:animals|max:255|min:3',
+            'image' => 'required|URL',
+            'species' => 'required|max:255|min:3',
+            'weight' => 'required|numeric|min:0',
+            'alimentation' => 'required|max:255|min:3',
+            'extintion' => 'required|max:255|min:3',
+            'colour' => 'required|max:255|min:3',
+            'habitat' => 'required|max:255|min:3',
+            'life_duration' => 'required|max:255|min:3',
+        ]);
         // metodo a mano
         // Recuperare l'animale tramite l'ID
         $animal = Animal::findOrFail($id);
